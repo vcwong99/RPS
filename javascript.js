@@ -1,4 +1,5 @@
 const choice = ["rock", "paper", "scissors"];
+let playerWins=0, computerWins=0;
 let keepPlaying=true;
 
 function getComputerChoice(){
@@ -15,23 +16,33 @@ function getPlayerChoice(){
 }
 
 function judge(computer, player){
-    if(choice[computer]==player){
+    let computerChoice = getComputerChoice(); 
+    if(computer==player){
         console.log("tie game!");
     }
     else if(((computer+1)%3)==player){
-        console.log("Player Wins!");
+        playerWins++;
+        console.log("Player Wins! And has won "+playerWins+" times. ");
     }
     else if(((computer-1)%3)==player){
-        console.log("Computer wins!");
+        computerWins++;
+        console.log("Computer wins! And has won "+computerWins+" times. ");
     }
-
-    
 }
  
- while(keepPlaying){
-    let playerChoice = getPlayerChoice();
+ function playRound(playerChoice){
+    //let playerChoice = getPlayerChoice();
     let computerChoice = getComputerChoice(); 
     console.log("you chose: "+choice[playerChoice]);
     console.log("the computer chose: "+choice[computerChoice]);
     judge(computerChoice, playerChoice);
  }
+ 
+ const buttons = document.querySelectorAll('button');
+ buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+      playRound(parseInt(button.id));
+    });
+  });

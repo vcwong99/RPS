@@ -1,0 +1,17 @@
+
+.choices{
+    display:flex;
+    justify-content: center;
+    padding:50px;
+    gap:5px;
+}
+
+button{
+    background-color: cornflowerblue;
+    border-style: none;
+    border-radius: 20px;;
+    color:white;
+    font-size: 36px;;
+    height:250px;
+    width:250px;
+}
