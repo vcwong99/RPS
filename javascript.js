@@ -34,11 +34,22 @@ function judge(computer, player){
 }
  
  function playRound(playerChoice){
-    let computerChoice = getComputerChoice(); 
-    const roundDescription= document.getElementById("round");
-    roundDescription.textContent="Player chose "+choice[playerChoice]+" the computer chose "+choice[computerChoice];
-    judge(computerChoice, playerChoice);
-    updateScore();
+    console.log(playerChoice);
+    if(keepPlaying){
+        let computerChoice = getComputerChoice(); 
+        const roundDescription= document.getElementById("round");
+        roundDescription.textContent="Player chose "+choice[playerChoice]+" the computer chose "+choice[computerChoice];
+        judge(computerChoice, playerChoice);
+        updateScore();
+    }
+ }
+ function checkForWinner(){
+    const winnerAnnouncer= document.getElementById("winner");
+    if(playerWins==5||computerWins==5){
+        winnerAnnouncer.textContent=playerWins==5? "Player has reached 5 and has won!":"Computer has reached 5 and has won!";
+        keepPlaying=false;
+    }
+   
  }
 
  function updateScore(){
@@ -46,14 +57,27 @@ function judge(computer, player){
     const computerScore=document.getElementById("computer");
     playerScore.textContent="Player: "+playerWins;
     computerScore.textContent="Computer: "+computerWins;
+    checkForWinner();
+ }
+
+ function reset(){
+    const result=document.getElementById("result");
+    const roundDescription= document.getElementById("round");
+    result.textContent="";
+    roundDescription.textContent="";
+    playerWins=0;
+    computerWins=0;
+    updateScore();
  }
  
  updateScore();
- const buttons = document.querySelectorAll('button');
+ const buttons = document.querySelectorAll('.choice');
  buttons.forEach((button) => {
 
     // and for each one we add a 'click' listener
-    button.addEventListener('click', () => {
-      playRound(parseInt(button.id));
+    button.addEventListener('click',()=>{
+    playRound(parseInt(button.id));
     });
   });
+    const resetButton = document.getElementById('reset');
+    resetButton.addEventListener('click', reset);

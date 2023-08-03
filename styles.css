@@ -7,6 +7,10 @@ p{
     font-size: 36px;
     font-weight: 800;;
 }
+.container{
+    display: flex;
+    flex-direction: column;
+}
 .scores{
     padding-top: 150px;
     padding-bottom:50px;
@@ -23,14 +27,30 @@ p{
     padding:50px;
     gap:5px;
 }
-
+#footer{
+    display:flex;
+    height:50px;
+    margin-top:50px;
+    background-color: azure;
+}
+#footer #reset{
+    flex:1;
+    padding:12px;
+}
 
 button{
     background-color: cornflowerblue;
     border-style: none;
-    border-radius: 20px;;
     color:white;
+    font-size:24px;
+    padding: 12px 64px;
+
+}
+.choices button{
+
+    border-radius: 20px;;
     font-size: 36px;;
     height:250px;
     width:250px;
 }
+
