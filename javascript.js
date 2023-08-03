@@ -55,6 +55,7 @@ function judge(computer, player){
  function updateScore(){
     const playerScore=document.getElementById("player");
     const computerScore=document.getElementById("computer");
+  
     playerScore.textContent="Player: "+playerWins;
     computerScore.textContent="Computer: "+computerWins;
     checkForWinner();
@@ -63,6 +64,8 @@ function judge(computer, player){
  function reset(){
     const result=document.getElementById("result");
     const roundDescription= document.getElementById("round");
+    const winnerAnnouncer= document.getElementById("winner");
+    winnerAnnouncer.textContent="";
     result.textContent="";
     roundDescription.textContent="";
     playerWins=0;

@@ -4,6 +4,8 @@ body{
 }
 
 p{
+    padding:0px;
+    margin:5px;
     font-size: 36px;
     font-weight: 800;;
 }
@@ -28,6 +30,7 @@ p{
     gap:5px;
 }
 #footer{
+    margin:5px;
     display:flex;
     height:50px;
     margin-top:50px;
